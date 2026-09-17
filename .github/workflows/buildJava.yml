@@ -19,7 +19,7 @@ jobs:
           distribution: temurin
           java-version: '21'
       - run: java --version
-      - run : mv -B package
+      - run : mv --B package
       
 
 
