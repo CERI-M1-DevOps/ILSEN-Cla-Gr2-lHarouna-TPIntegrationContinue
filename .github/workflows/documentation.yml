@@ -9,6 +9,9 @@ jobs:
     name: Documentation
     if: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -28,4 +31,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./target
 
-          
