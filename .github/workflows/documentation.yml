@@ -1,0 +1,29 @@
+name: Documentation
+
+on: 
+  pull_request:
+    types: [closed]
+
+jobs: 
+  Documentation:
+    name: Documentation
+    if: ${{ github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with: 
+          distribution: temurin
+          java-version: '21'     
+
+      - name: Generate Javadoc
+        run: mvn -B javadoc:javadoc
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/site/apidocs   
