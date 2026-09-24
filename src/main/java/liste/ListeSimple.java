@@ -52,7 +52,7 @@ public class ListeSimple {
             }
             Noeud precedent = tete;
             Noeud courant = tete.getSuivant();
-            while (courant != null ) {
+            while (courant != null && courant.getElement() != element) {
                 precedent = precedent.getSuivant();
                 courant = courant.getSuivant();
             }
