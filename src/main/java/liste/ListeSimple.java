@@ -4,10 +4,17 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /*
+        Récupere le nombre d'element
+        @return le nombre
+    */
     public long getSize() {
         return size;
     }
-
+    /*
+        ajoute un element
+        @param element  : valeur à ajouter
+    */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
@@ -64,7 +71,7 @@ public class ListeSimple {
     }
 
 
-    
+
 
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);
@@ -96,7 +103,9 @@ public class ListeSimple {
             return courant;
         }
     }
-
+    /*
+     Inverse l'ordre des noeuds de la liste
+    */
     public void inverser() {
         Noeud precedent = null;
         Noeud courant = tete;
